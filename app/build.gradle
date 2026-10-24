@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.app.solodroidwebviewjson3'
+    compileSdk 36
+    defaultConfig {
+        applicationId "com.app.solodroidwebviewjson3"
+        minSdk 21
+        targetSdk 36
+        versionCode 5
+        versionName "3.1.1"
+        multiDexEnabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+    bundle {
+        storeArchive {
+            enable = false
+        }
+    }
+    lint {
+        disable 'GradleDependency', 'GradleDynamicVersion'
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.16.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.core:core:1.15.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-process:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.7.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+	implementation 'androidx.work:work-runtime:2.9.0'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.play:review:2.0.1'
+    implementation 'com.google.android.play:app-update:2.1.0'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'commons-io:commons-io:2.16.1'
+
+    //Ad Network Sdk options, change to:
+    //admob-ads-sdk: The app uses AdMob and Google Ad Manager
+    //alien-ads-sdk: The app uses AdMob, Google Ad Manager and Alien Ads
+    //simple-ads-sdk: The app uses AdMob, Google Ad Manager and Meta Audience Network
+    //triple-ads-sdk: The app uses AdMob, Google Ad Manager, Meta Audience Network and Applovin
+    //multi-ads-sdk: The app uses all of ads from simple-ads-sdk and other ads providers from: Applovin, Start.io, Unity, ironSource
+    //no-ads-sdk: The app doesn't use any ads
+    implementation 'com.github.solodroid-dev:alien-ads-sdk:1.+'
+
+    //Push notification
+    implementation 'com.github.solodroid-dev:push-notification-sdk:1.+'
+
+    //Image Library
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+    //REST API
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+
+}
